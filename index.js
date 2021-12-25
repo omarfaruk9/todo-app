@@ -2,7 +2,7 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const app = express();
 const cors = require('cors');
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -20,6 +20,7 @@ async function run() {
         // console.log('connnet');
 
         // addItems 
+
         app.post('/addItem', async (req, res) => {
             const addItem = req.body;
             console.log('hitt the psot');
